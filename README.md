@@ -118,3 +118,10 @@ Future improvements may include fine-tuning the model, implementing bias mitigat
 To install the requirements, run:
 ```bash
 pip install -r requirements.txt
+
+## Contributors
+
+- [Monica Anyango](https://github.com/MONISH254)
+- [Grace Waceke](https://github.com/wachekeg)
+- [Bedan Kibunja](https://github.com/bedankibunja)
+- [Martin Kabare](https://github.com/glk-19)
