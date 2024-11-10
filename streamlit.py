@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as pd
 import pickle
 from sklearn.preprocessing import StandardScaler
+import numpy as np
+
 
 # Load pre-trained models and data
 @st.cache_data
@@ -12,8 +14,8 @@ def load_data():
 # Load the trained model and scaler
 @st.cache_resource
 def load_models():
-    with open("xgb_weighted_model.pkl", "rb") as model_file:
-        model = pickle.load(model_file)
+    with open("Lgbm_Tuned_model.pkl", "rb") as model_file:
+        model = pickle.load(Lgbm_Tuned_model_file)
     with open("scaler.pkl", "rb") as scaler_file:
         scaler, selected_features = pickle.load(scaler_file)
     return model, scaler, selected_features
@@ -117,7 +119,8 @@ selected_features = ['training_effectiveness', 'department_freq_encoded', 'relat
                      'education', 'service_group', 'consistent_performer']
 
 # Select only the required features for prediction
-input_df = input_df[selected_features]
+input_df = scaler.transform(input_data[selected_features])
+
 
 # Make Prediction
 if st.button("Predict Promotion Eligibility"):
