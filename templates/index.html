@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Promotion Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Employee Promotion Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="department">Department:</label>
+        <input type="text" name="department" required><br>
+
+        <label for="recruitment_channel">Recruitment Channel:</label>
+        <input type="text" name="recruitment_channel" required><br>
+
+        <label for="age_group">Age Group:</label>
+        <select name="age_group">
+            <option value="Under 20">Under 20</option>
+            <option value="20-30">20-30</option>
+            <option value="30-40">30-40</option>
+            <option value="40-50">40-50</option>
+            <option value="50-60">50-60</option>
+            <option value="Over 60">Over 60</option>
+        </select><br>
+
+        <label for="service_group">Service Group:</label>
+        <select name="service_group">
+            <option value="Less than 2 years">Less than 2 years</option>
+            <option value="2-5 years">2-5 years</option>
+            <option value="5-10 years">5-10 years</option>
+            <option value="Over 10 years">Over 10 years</option>
+        </select><br>
+
+        <label for="score_group">Performance Score:</label>
+        <select name="score_group">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Very High">Very High</option>
+        </select><br>
+
+        <label for="education">Education Level:</label>
+        <select name="education">
+            <option value="Below Secondary">Below Secondary</option>
+            <option value="Bachelor's">Bachelor's</option>
+            <option value="Master's & above">Master's & above</option>
+        </select><br>
+
+        <label for="KPIs_met">KPIs met >80%:</label>
+        <input type="checkbox" name="KPIs_met"><br>
+
+        <label for="awards_won">Awards Won:</label>
+        <input type="checkbox" name="awards_won"><br>
+
+        <label for="career_velocity">Career Velocity:</label>
+        <input type="number" name="career_velocity" step="0.01"><br>
+
+        <label for="training_frequency">Training Frequency:</label>
+        <input type="number" name="training_frequency" step="0.01"><br>
+
+        <label for="training_effectiveness">Training Effectiveness:</label>
+        <input type="number" name="training_effectiveness" step="0.1"><br>
+
+        <label for="relative_performance">Relative Performance:</label>
+        <input type="number" name="relative_performance" step="0.01"><br>
+
+        <label for="consistent_performer">Consistent Performer:</label>
+        <input type="checkbox" name="consistent_performer"><br>
+
+        <button type="submit">Predict Promotion Eligibility</button>
+    </form>
+
+    {% if prediction is not none %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
