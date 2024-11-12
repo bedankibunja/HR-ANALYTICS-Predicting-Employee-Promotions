@@ -74,7 +74,7 @@ The project uses two datasets:
 
 1. **Exploratory Data Analysis (EDA)**: 
 In the notebook, EDA uses visualizations and correlation analyses to explore distributions and relationships among features, identifying trends that influence promotion, such as `previous_year_rating` and `avg_training_score`. This analysis informs feature engineering and data cleaning steps.
-![distribution of numerical columns](Images/distribution of numerical columns.png "distribution of numerical columns")
+![Distribution of Numerical Columns](Images/distribution_of_numerical_columns.png "Distribution of Numerical Columns")
 
 2. **Feature Engineering**: 
 To enhance model accuracy and interpretability, we engineered new features such as age and service groups, Performance Index, and Career Velocity, capturing patterns in promotion eligibility. We developed composite features like Relative Experience and Training Frequency, providing insights into employee growth and learning. Redundant and sensitive columns were removed to reduce bias, and statistical testing and multicollinearity checks ensured only significant, unique predictors were retained. These data preparation steps created a refined dataset that strengthened the model's ability to identify promotion-eligible employees accurately.
