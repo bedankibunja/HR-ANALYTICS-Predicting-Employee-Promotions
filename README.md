@@ -72,30 +72,35 @@ The project uses two datasets:
 
 ## Methodology
 
-1. **Exploratory Data Analysis (EDA)**: 
+### Exploratory Data Analysis (EDA) 
 In the notebook, EDA uses visualizations and correlation analyses to explore distributions and relationships among features, identifying trends that influence promotion, such as `previous_year_rating` and `avg_training_score`. This analysis informs feature engineering and data cleaning steps.
 ![Distribution of Numerical Columns](./Images/distribution_of_numerical_columns.png.PNG "Distribution of Numerical Columns")
 
-2. **Feature Engineering**: 
+### Feature Engineering 
 To enhance model accuracy and interpretability, we engineered new features such as age and service groups, Performance Index, and Career Velocity, capturing patterns in promotion eligibility. We developed composite features like Relative Experience and Training Frequency, providing insights into employee growth and learning. Redundant and sensitive columns were removed to reduce bias, and statistical testing and multicollinearity checks ensured only significant, unique predictors were retained. These data preparation steps created a refined dataset that strengthened the model's ability to identify promotion-eligible employees accurately.
 
-3. **Data Preprocessing**: 
+### Data Preprocessing
 The notebook preprocesses data by imputing missing values, encoding categorical features, and scaling numerical features. These steps create a structured dataset ready for model training, ensuring consistency and compatibility for machine learning.
 
-4. **Model Selection and Training**: 
-- A variety of models were tested, including **Logistic Regression**, **Decision Tree**, **Random Forest**, **Gradient Boosting**, **XGBoost**, **LightGBM**, and **Support Vector Classifier (SVC)**. Ensemble methods like **Stacking Classifier** and **Balanced Bagging** were also explored.
+### Modelling
 
-- **Hyperparameter Tuning:**
+#### Model Selection and Training
+A variety of models were tested, including **Logistic Regression**, **Decision Tree**, **Random Forest**, **Gradient Boosting**, **XGBoost**, **LightGBM**, and **Support Vector Classifier (SVC)**. Ensemble methods like **Stacking Classifier** and **Balanced Bagging** were also explored.
 
-- Hyperparameter tuning was performed across several algorithms, with a specific focus on enhancing the **F1 score**. By fine-tuning parameters for **LightGBM**, we optimized its performance, resulting in the highest F1 score observed.
-- Other models, such as **XGBClassifier** and **Gradient Boosting**, achieved F1 scores of 48.77% and 47.39% respectively, but did not match the optimized performance of the tuned LightGBM model.
+#### Hyperparameter Tuning
 
-- **Ensemble and Stacking Models:**
-- The **Stacking Classifier** achieved a balanced F1 score of 46.78% with high accuracy, providing reliable predictions across both precision and recall metrics.
+Hyperparameter tuning was performed across several algorithms, with a specific focus on enhancing the **F1 score**. By fine-tuning parameters for **LightGBM**, we optimized its performance, resulting in the highest F1 score observed.<br>
+Other models, such as **XGBClassifier** and **Gradient Boosting**, achieved F1 scores of 48.77% and 47.39% respectively, but did not match the optimized performance of the tuned LightGBM model.
 
-5. **Evaluation**: 
+#### Ensemble and Stacking Models
+
+The **Stacking Classifier** achieved a balanced F1 score of 46.78% with high accuracy, providing reliable predictions across both precision and recall metrics.
+
+### Evaluation
+
 The F1 score, which balances precision and recall, was chosen to ensure the model accurately identifies promotion-eligible employees while minimizing false positives and negatives.
 The tuned LightGBM model emerged as the top performer with an F1 score of 90.19%, making it the most effective model for HR’s goal of accurate promotion predictions. This focus on F1 optimization has led to a model that balances accuracy with equitable, data-driven promotion recommendations.
+![Model Comparison](./Images/Model_Comparison.PNG "Model Comparison")
 
 ## Conclusion
 ### Findings
@@ -117,26 +122,42 @@ The tuned LightGBM model emerged as the top performer with an F1 score of 90.19%
 Future improvements may include fine-tuning the model, implementing bias mitigation strategies, and exploring more complex algorithms.
 
 ## Installation
-To run this project, follow these steps:
+To set up and run this project, follow these steps:
 
-1. Clone the repository:
+1. **Clone the repository:**  
+   Clone the project repository from GitHub to your local machine.
     ```bash
-    git clone https://git@github.com:bedankibunja/HR-ANALYTICS-Predicting-Employee-Promotions.git
+    git clone https://github.com/bedankibunja/HR-ANALYTICS-Predicting-Employee-Promotions.git
     ```
-2. Navigate to the project directory:
+
+2. **Navigate to the project directory:**  
+   Change to the project directory to access the files.
     ```bash
-    cd moviestudio-eda
+    cd HR-ANALYTICS-Predicting-Employee-Promotions
     ```
-3. Install the required dependencies:
+
+3. **Install the required dependencies:**  
+   Install all necessary packages listed in the `requirements.txt` file.
     ```bash
-    pip install  requirements.txt
+    pip install -r requirements.txt
     ```
 
 ## Usage
-Open the Jupyter notebook and follow the instructions to reproduce the analysis and results:
+To explore the analysis and reproduce the results, follow these steps:
 
-```bash
-```
+1. **Open the Jupyter Notebook:**  
+   Launch the Jupyter Notebook environment and open the file `Notebook.ipynb` located in the repository.
+
+2. **Follow the Instructions:**  
+   The notebook contains step-by-step instructions for data loading, preprocessing, feature engineering, model training, and evaluation.
+
+3. **Execute Code Cells:**  
+   Run each code cell in sequence to perform the full analysis and view results. You can also modify parameters or experiment with additional features as desired.
+
+To open the notebook, run:
+   ```bash
+   jupyter notebook Notebook.ipynb
+
 
 
 ## Contributors
