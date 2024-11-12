@@ -79,6 +79,10 @@ In the notebook, EDA uses visualizations and correlation analyses to explore dis
 ### Feature Engineering 
 To enhance model accuracy and interpretability, we engineered new features such as age and service groups, Performance Index, and Career Velocity, capturing patterns in promotion eligibility. We developed composite features like Relative Experience and Training Frequency, providing insights into employee growth and learning. Redundant and sensitive columns were removed to reduce bias, and statistical testing and multicollinearity checks ensured only significant, unique predictors were retained. These data preparation steps created a refined dataset that strengthened the model's ability to identify promotion-eligible employees accurately.
 
+    ```bash
+    # Creating the relative_experience feature. 
+    df['relative_experience'] = df['age'] / (df['length_of_service'] + 1)
+    ```
 ### Data Preprocessing
 The notebook preprocesses data by imputing missing values, encoding categorical features, and scaling numerical features. These steps create a structured dataset ready for model training, ensuring consistency and compatibility for machine learning.
 
@@ -86,18 +90,13 @@ The notebook preprocesses data by imputing missing values, encoding categorical 
 
 #### Model Selection and Training
 A variety of models were tested, including **Logistic Regression**, **Decision Tree**, **Random Forest**, **Gradient Boosting**, **XGBoost**, **LightGBM**, and **Support Vector Classifier (SVC)**. Ensemble methods like **Stacking Classifier** and **Balanced Bagging** were also explored.
-
 #### Hyperparameter Tuning
-
 Hyperparameter tuning was performed across several algorithms, with a specific focus on enhancing the **F1 score**. By fine-tuning parameters for **LightGBM**, we optimized its performance, resulting in the highest F1 score observed.<br>
 Other models, such as **XGBClassifier** and **Gradient Boosting**, achieved F1 scores of 48.77% and 47.39% respectively, but did not match the optimized performance of the tuned LightGBM model.
-
 #### Ensemble and Stacking Models
-
 The **Stacking Classifier** achieved a balanced F1 score of 46.78% with high accuracy, providing reliable predictions across both precision and recall metrics.
-
 ### Evaluation
-
+![All Models Comparison](./Images/All_Models.PNG "All Models Comparison")
 The F1 score, which balances precision and recall, was chosen to ensure the model accurately identifies promotion-eligible employees while minimizing false positives and negatives.
 The tuned LightGBM model emerged as the top performer with an F1 score of 90.19%, making it the most effective model for HR’s goal of accurate promotion predictions. This focus on F1 optimization has led to a model that balances accuracy with equitable, data-driven promotion recommendations.
 ![Model Comparison](./Images/Model_Comparison.PNG "Model Comparison")
@@ -105,18 +104,14 @@ The tuned LightGBM model emerged as the top performer with an F1 score of 90.19%
 ## Conclusion
 ### Findings
 1. The data highlights a significant imbalance, with a small percentage of employees eligible for promotion.
-
 2. Extensive feature engineering and careful feature selection was done to boost model performance.
-
 3. Initial Model Performance and Tuning Needs: Early model tests indicated low F1 scores, highlighting the need to balance precision (identifying true promotion candidates) and recall (minimizing false negatives).
 
 ### Recommendations
-1. **Explore Advanced Feature Engineering for Richer Insights:** Adding additional features, such as metrics related to leadership initiatives, cross-departmental collaborations, or innovative contributions, could provide a deeper view into promotion readiness. This would allow us to recognize contributions that align with our company’s values and priorities, giving HR teams a broader context when making promotion decisions.
-
-2. **Establish Regular Model Audits:** To ensure our model remains accurate and aligned with evolving organizational needs, we suggest scheduling quarterly evaluations and updates. These ongoing reviews will help our model adapt to workforce changes and emerging business objectives, giving stakeholders assurance that promotion processes remain fair and aligned with company goals.
-
-3. **Implement Techniques to Address Data Imbalance**  
-4. **Explore Advanced Hyper-Parameter Tuning**
+1. Explore Advanced Feature Engineering for Richer Insights; adding additional features, such as metrics related to leadership initiatives, cross-departmental collaborations, or innovative contributions, could provide a deeper view into promotion readiness. This would allow us to recognize contributions that align with our company’s values and priorities, giving HR teams a broader context when making promotion decisions.
+2. Establish Regular Model Audits; To ensure our model remains accurate and aligned with evolving organizational needs, we suggest scheduling quarterly evaluations and updates. These ongoing reviews will help our model adapt to workforce changes and emerging business objectives, giving stakeholders assurance that promotion processes remain fair and aligned with company goals.
+3. Implement Techniques to Address Data Imbalance 
+4. Explore Advanced Hyper-Parameter Tuning.
 
 ## Future Work
 Future improvements may include fine-tuning the model, implementing bias mitigation strategies, and exploring more complex algorithms.
@@ -145,19 +140,17 @@ To set up and run this project, follow these steps:
 ## Usage
 To explore the analysis and reproduce the results, follow these steps:
 
-1. **Open the Jupyter Notebook:**  
-   Launch the Jupyter Notebook environment and open the file `Notebook.ipynb` located in the repository.
-
-2. **Follow the Instructions:**  
-   The notebook contains step-by-step instructions for data loading, preprocessing, feature engineering, model training, and evaluation.
-
-3. **Execute Code Cells:**  
-   Run each code cell in sequence to perform the full analysis and view results. You can also modify parameters or experiment with additional features as desired.
+**Open the Jupyter Notebook:**<br>  
+Launch the Jupyter Notebook environment and open the file `Notebook.ipynb` located in the repository.<br>
+**Follow the Instructions:**<br>  
+The notebook contains step-by-step instructions for data loading, preprocessing, feature engineering, model training, and evaluation.<br>
+**Execute Code Cells:**<br>  
+Run each code cell in sequence to perform the full analysis and view results. You can also modify parameters or experiment with additional features as desired.
 
 To open the notebook, run:
    ```bash
    jupyter notebook Notebook.ipynb
-
+    ```
 
 
 ## Contributors
