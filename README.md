@@ -79,10 +79,10 @@ In the notebook, EDA uses visualizations and correlation analyses to explore dis
 ### Feature Engineering 
 To enhance model accuracy and interpretability, we engineered new features such as age and service groups, Performance Index, and Career Velocity, capturing patterns in promotion eligibility. We developed composite features like Relative Experience and Training Frequency, providing insights into employee growth and learning. Redundant and sensitive columns were removed to reduce bias, and statistical testing and multicollinearity checks ensured only significant, unique predictors were retained. These data preparation steps created a refined dataset that strengthened the model's ability to identify promotion-eligible employees accurately.
 
-    ```bash
-    # Creating the relative_experience feature. 
-    df['relative_experience'] = df['age'] / (df['length_of_service'] + 1)
-    ```
+```python
+# Creating the relative_experience feature. 
+df['relative_experience'] = df['age'] / (df['length_of_service'] + 1)
+```
 ### Data Preprocessing
 The notebook preprocesses data by imputing missing values, encoding categorical features, and scaling numerical features. These steps create a structured dataset ready for model training, ensuring consistency and compatibility for machine learning.
 
@@ -148,9 +148,9 @@ The notebook contains step-by-step instructions for data loading, preprocessing,
 Run each code cell in sequence to perform the full analysis and view results. You can also modify parameters or experiment with additional features as desired.
 
 To open the notebook, run:
-   ```bash
-   jupyter notebook Notebook.ipynb
-    ```
+```bash
+jupyter notebook Notebook.ipynb
+```
 
 
 ## Contributors
