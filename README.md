@@ -1,4 +1,4 @@
-# HR-ANALYTICS-Predicting-Employee-Promotions
+# HR ANALYTICS; Predicting Employee Promotions
 
 ![Employee Prediction](./Images/Employee_Prediction.png "Employees sitting around a table")
 
@@ -74,50 +74,70 @@ The project uses two datasets:
 
 1. **Exploratory Data Analysis (EDA)**: 
 In the notebook, EDA uses visualizations and correlation analyses to explore distributions and relationships among features, identifying trends that influence promotion, such as `previous_year_rating` and `avg_training_score`. This analysis informs feature engineering and data cleaning steps.
+![distribution of numerical columns](./Images/distribution of numerical columns.png "distribution of numerical columns")
 
 2. **Feature Engineering**: 
-New features are created based on identified patterns, such as combining training-related variables and regrouping sparse categories in `department`. These engineered features aim to improve the model’s ability to predict promotion potential effectively.
+To enhance model accuracy and interpretability, we engineered new features such as age and service groups, Performance Index, and Career Velocity, capturing patterns in promotion eligibility. We developed composite features like Relative Experience and Training Frequency, providing insights into employee growth and learning. Redundant and sensitive columns were removed to reduce bias, and statistical testing and multicollinearity checks ensured only significant, unique predictors were retained. These data preparation steps created a refined dataset that strengthened the model's ability to identify promotion-eligible employees accurately.
 
 3. **Data Preprocessing**: 
 The notebook preprocesses data by imputing missing values, encoding categorical features, and scaling numerical features. These steps create a structured dataset ready for model training, ensuring consistency and compatibility for machine learning.
 
 4. **Model Selection and Training**: 
-Multiple models, including Logistic Regression and Random Forest, are trained with tuned hyperparameters. Cross-validation is used to identify the best-performing model based on predictive accuracy and generalizability.
+- A variety of models were tested, including **Logistic Regression**, **Decision Tree**, **Random Forest**, **Gradient Boosting**, **XGBoost**, **LightGBM**, and **Support Vector Classifier (SVC)**. Ensemble methods like **Stacking Classifier** and **Balanced Bagging** were also explored.
+
+- **Hyperparameter Tuning:**
+
+- Hyperparameter tuning was performed across several algorithms, with a specific focus on enhancing the **F1 score**. By fine-tuning parameters for **LightGBM**, we optimized its performance, resulting in the highest F1 score observed.
+- Other models, such as **XGBClassifier** and **Gradient Boosting**, achieved F1 scores of 48.77% and 47.39% respectively, but did not match the optimized performance of the tuned LightGBM model.
+
+- **Ensemble and Stacking Models:**
+- The **Stacking Classifier** achieved a balanced F1 score of 46.78% with high accuracy, providing reliable predictions across both precision and recall metrics.
 
 5. **Evaluation**: 
-The model’s performance is evaluated using F1 Score, Precision, and Recall, with a focus on balancing prediction accuracy and reducing false negatives. A confusion matrix provides additional insight into model errors, guiding future improvements.
-
-## Results and Findings
-The README will be updated with specific results and findings upon model completion, including key metrics and any actionable insights for HR departments.
+The F1 score, which balances precision and recall, was chosen to ensure the model accurately identifies promotion-eligible employees while minimizing false positives and negatives.
+The tuned LightGBM model emerged as the top performer with an F1 score of 90.19%, making it the most effective model for HR’s goal of accurate promotion predictions. This focus on F1 optimization has led to a model that balances accuracy with equitable, data-driven promotion recommendations.
 
 ## Conclusion
-
 ### Findings
-This section will be populated with insights gained from the analysis.
+1. The data highlights a significant imbalance, with a small percentage of employees eligible for promotion.
+
+2. Extensive feature engineering and careful feature selection was done to boost model performance.
+
+3. Initial Model Performance and Tuning Needs: Early model tests indicated low F1 scores, highlighting the need to balance precision (identifying true promotion candidates) and recall (minimizing false negatives).
 
 ### Recommendations
-This section will include actionable recommendations based on model results.
+1. **Explore Advanced Feature Engineering for Richer Insights:** Adding additional features, such as metrics related to leadership initiatives, cross-departmental collaborations, or innovative contributions, could provide a deeper view into promotion readiness. This would allow us to recognize contributions that align with our company’s values and priorities, giving HR teams a broader context when making promotion decisions.
+
+2. **Establish Regular Model Audits:** To ensure our model remains accurate and aligned with evolving organizational needs, we suggest scheduling quarterly evaluations and updates. These ongoing reviews will help our model adapt to workforce changes and emerging business objectives, giving stakeholders assurance that promotion processes remain fair and aligned with company goals.
+
+3. **Implement Techniques to Address Data Imbalance**  
+4. **Explore Advanced Hyper-Parameter Tuning**
 
 ## Future Work
 Future improvements may include fine-tuning the model, implementing bias mitigation strategies, and exploring more complex algorithms.
 
-## How to Use This Repository
-1. Clone the repository.
-2. Run the notebook file `Notebook.ipynb` in a Jupyter Notebook environment.
-3. Install necessary packages as outlined in the requirements section below.
+## Installation
+To run this project, follow these steps:
 
-## Requirements
-- Python 3.x
-- Jupyter Notebook
-- Pandas
-- NumPy
-- Scikit-Learn
-- Matplotlib
-- Seaborn
+1. Clone the repository:
+    ```bash
+    git clone https://git@github.com:bedankibunja/HR-ANALYTICS-Predicting-Employee-Promotions.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd moviestudio-eda
+    ```
+3. Install the required dependencies:
+    ```bash
+    pip install  requirements.txt
+    ```
 
-To install the requirements, run:
+## Usage
+Open the Jupyter notebook and follow the instructions to reproduce the analysis and results:
+
 ```bash
-pip install -r requirements.txt
+```
+
 
 ## Contributors
 
